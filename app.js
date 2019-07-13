@@ -23,12 +23,13 @@ app.get('/weatherfetch' , (req,res)=>
     {
        return  res.send('provide a query')
     }
+    
     else{
     geocode(req.query.search ,(error , data)=>
     {
     if(error)
         {
-            return console.log(error)
+            return res.send({error})
         }
     //res.send(data)
 
@@ -36,7 +37,7 @@ app.get('/weatherfetch' , (req,res)=>
         {
             if(error)
         {
-            return    console.log(error)
+            return    res.send({error})
         }
         res.send({
             geocode:data,

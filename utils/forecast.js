@@ -1,7 +1,7 @@
 const request=require('request')
 
 const forecast=(x,y,callback)=> {
-    const url='https://api.darksky.net/forecast/b71b70dee653b9d6d1c307d87395382d/' + x +',' + y + '?'
+    const url='https://api.darksky.net/forecast/b71b70dee653b9d6d1c307d87395382d/' + x +',' + y + '?&units=si'
 
     request( { url:url , json : true} , (error,response ) =>
     {
@@ -15,7 +15,7 @@ const forecast=(x,y,callback)=> {
         }
         else
         {
-            callback(undefined, response.body.daily.data[0].summary +'  the temp in your area is : ' +response.body.currently.temperature +'  and chance of rain are : ' + response.body.currently.precipProbability )
+            callback(undefined, response.body.daily.data[0].summary +'  The temp in your area is : ' +response.body.currently.temperature +'  degrees  and chances of rain are : ' + response.body.currently.precipProbability )
         }
     })
 }

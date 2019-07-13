@@ -9,7 +9,11 @@ const geocode=( address , callback) =>
         {
             callback('could not connect')
         }
-        else if(response.body.features[0].length===0)
+        else if (!response.body)
+        {
+            console.log("invalid search")
+        }
+        else if(!response.body.features[0])
         {
             callback('try another search location')
         }
