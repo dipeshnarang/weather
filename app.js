@@ -6,7 +6,7 @@ const hbs=require('hbs')
 const publicdirpath=path.join(__dirname , './public/js')
 const viewspath=path.join(__dirname , './templates/views')
 const app=express()
-
+const port = process.env.Port || 3000
 app.use(express.static(publicdirpath))
 
 app.set('view engine', 'hbs')
@@ -50,9 +50,12 @@ app.get('/weatherfetch' , (req,res)=>
     
 })
 
-app.get('/weather' ,(req,res)=>
+app.get('' ,(req,res)=>
 {
     res.render('weather')
 })
 
-app.listen(3000)
+app.listen(port , ()=>
+{
+    console.log('running on port ' +port)
+})
