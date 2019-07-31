@@ -15,7 +15,11 @@ const forecast=(x,y,callback)=> {
         }
         else
         {
-            callback(undefined, response.body.daily.data[0].summary +'  The temp in your area is : ' +response.body.currently.temperature +'  degrees  and chances of rain are : ' + response.body.currently.precipProbability )
+            callback(undefined, { 
+                summary : response.body.daily.data[0].summary, 
+                temp: response.body.currently.temperature ,
+                chances_of_rain : response.body.currently.precipProbability,
+                icon :response.body.currently.icon} )
         }
     })
 }
