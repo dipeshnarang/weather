@@ -23,6 +23,7 @@ weatherform.addEventListener('submit', (e)=>
         {
            return console.log(error)
         }
+        console.log(data)
         message1.textContent="Summary :" +data.forecast.summary;
         message2.textContent= "latitude :" +data.geocode.latitude + "   " +"  longitude :" +data.geocode.longitude + "    "+"location : " + data.geocode.location
         message3.textContent="Temperature :" +data.forecast.temp; + "degrees"
