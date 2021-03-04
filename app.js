@@ -55,6 +55,18 @@ app.get('' ,(req,res)=>
     res.render('weather')
 })
 
+app.get('/getwebhookDetails',async(req,res)=>{
+    try{
+        const details=req.body
+        console.log(details)
+        res.status(200).send(details)
+    }catch(e){
+        console.log(e)
+        res.send(e)
+    }
+})
+
+
 app.listen(port , ()=>
 {
     console.log('running on port ' +port)
